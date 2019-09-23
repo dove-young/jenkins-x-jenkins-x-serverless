@@ -11,7 +11,7 @@ pipelineConfig:
               requests:
                 memory: 6Gi
         agent:
-          image: gcr.io/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
+          image: 9.46.76.93:5000/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
         stages:
         - name: release
           environment:
@@ -39,171 +39,171 @@ pipelineConfig:
               - -f
               - /builder/home/kaniko-secret.json
           - name: warm-cache
-            image: gcr.io/kaniko-project/warmer
+            image: 9.46.76.93:5000/kaniko-project/warmer
             args:
               - --cache-dir=/workspace
               - --image=jenkinsxio/jenkins-filerunner:0.1.18
             command: /kaniko/warmer
-          - image: gcr.io/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
+          - image: 9.46.76.93:5000/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
             name: jx-image
             command: /kaniko/executor
             args:
               - --dockerfile=Dockerfile.jx
-              - --destination=gcr.io/jenkinsxio/jenkins-jx:${inputs.params.version}
-              - --destination=gcr.io/jenkinsxio/jenkins-jx:latest
+              - --destination=9.46.76.93:5000/jenkinsxio/jenkins-jx:${inputs.params.version}
+              - --destination=9.46.76.93:5000/jenkinsxio/jenkins-jx:latest
               - --context=/workspace/source
-              - --cache-repo=gcr.io/jenkinsxio/cache
+              - --cache-repo=9.46.76.93:5000/jenkinsxio/cache
               - --cache=true
               - --cache-dir=/workspace
-          - image: gcr.io/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
+          - image: 9.46.76.93:5000/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
             name: csharp-image
             command: /kaniko/executor
             args:
               - --dockerfile=Dockerfile.csharp
-              - --destination=gcr.io/jenkinsxio/jenkins-csharp:${inputs.params.version}
-              - --destination=gcr.io/jenkinsxio/jenkins-csharp:latest
+              - --destination=9.46.76.93:5000/jenkinsxio/jenkins-csharp:${inputs.params.version}
+              - --destination=9.46.76.93:5000/jenkinsxio/jenkins-csharp:latest
               - --context=/workspace/source
-              - --cache-repo=gcr.io/jenkinsxio/cache
+              - --cache-repo=9.46.76.93:5000/jenkinsxio/cache
               - --cache=true
               - --cache-dir=/workspace
-          - image: gcr.io/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
+          - image: 9.46.76.93:5000/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
             name: cwp-image
             command: /kaniko/executor
             args:
               - --dockerfile=Dockerfile.cwp
-              - --destination=gcr.io/jenkinsxio/jenkins-cwp:${inputs.params.version}
-              - --destination=gcr.io/jenkinsxio/jenkins-cwp:latest
+              - --destination=9.46.76.93:5000/jenkinsxio/jenkins-cwp:${inputs.params.version}
+              - --destination=9.46.76.93:5000/jenkinsxio/jenkins-cwp:latest
               - --context=/workspace/source
-              - --cache-repo=gcr.io/jenkinsxio/cache
+              - --cache-repo=9.46.76.93:5000/jenkinsxio/cache
               - --cache=true
               - --cache-dir=/workspace
-          - image: gcr.io/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
+          - image: 9.46.76.93:5000/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
             name: elixir-image
             command: /kaniko/executor
             args:
               - --dockerfile=Dockerfile.elixir
-              - --destination=gcr.io/jenkinsxio/jenkins-elixir:${inputs.params.version}
-              - --destination=gcr.io/jenkinsxio/jenkins-elixir:latest
+              - --destination=9.46.76.93:5000/jenkinsxio/jenkins-elixir:${inputs.params.version}
+              - --destination=9.46.76.93:5000/jenkinsxio/jenkins-elixir:latest
               - --context=/workspace/source
-              - --cache-repo=gcr.io/jenkinsxio/cache
+              - --cache-repo=9.46.76.93:5000/jenkinsxio/cache
               - --cache=true
               - --cache-dir=/workspace
-          - image: gcr.io/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
+          - image: 9.46.76.93:5000/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
             name: go-image
             command: /kaniko/executor
             args:
               - --dockerfile=Dockerfile.go
-              - --destination=gcr.io/jenkinsxio/jenkins-go:${inputs.params.version}
-              - --destination=gcr.io/jenkinsxio/jenkins-go:latest
+              - --destination=9.46.76.93:5000/jenkinsxio/jenkins-go:${inputs.params.version}
+              - --destination=9.46.76.93:5000/jenkinsxio/jenkins-go:latest
               - --context=/workspace/source
-              - --cache-repo=gcr.io/jenkinsxio/cache
+              - --cache-repo=9.46.76.93:5000/jenkinsxio/cache
               - --cache=true
               - --cache-dir=/workspace
-          - image: gcr.io/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
+          - image: 9.46.76.93:5000/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
             name: gradle-image
             command: /kaniko/executor
             args:
               - --dockerfile=Dockerfile.gradle
-              - --destination=gcr.io/jenkinsxio/jenkins-gradle:${inputs.params.version}
-              - --destination=gcr.io/jenkinsxio/jenkins-gradle:latest
+              - --destination=9.46.76.93:5000/jenkinsxio/jenkins-gradle:${inputs.params.version}
+              - --destination=9.46.76.93:5000/jenkinsxio/jenkins-gradle:latest
               - --context=/workspace/source
-              - --cache-repo=gcr.io/jenkinsxio/cache
+              - --cache-repo=9.46.76.93:5000/jenkinsxio/cache
               - --cache=true
               - --cache-dir=/workspace
-          - image: gcr.io/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
+          - image: 9.46.76.93:5000/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
             name: javascript-image
             command: /kaniko/executor
             args:
               - --dockerfile=Dockerfile.javascript
-              - --destination=gcr.io/jenkinsxio/jenkins-javascript:${inputs.params.version}
-              - --destination=gcr.io/jenkinsxio/jenkins-javascript:latest
+              - --destination=9.46.76.93:5000/jenkinsxio/jenkins-javascript:${inputs.params.version}
+              - --destination=9.46.76.93:5000/jenkinsxio/jenkins-javascript:latest
               - --context=/workspace/source
-              - --cache-repo=gcr.io/jenkinsxio/cache
+              - --cache-repo=9.46.76.93:5000/jenkinsxio/cache
               - --cache=true
               - --cache-dir=/workspace
-          - image: gcr.io/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
+          - image: 9.46.76.93:5000/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
             name: jenkins-image
             command: /kaniko/executor
             args:
               - --dockerfile=Dockerfile.jenkins
-              - --destination=gcr.io/jenkinsxio/jenkins-jenkins:${inputs.params.version}
-              - --destination=gcr.io/jenkinsxio/jenkins-jenkins:latest
+              - --destination=9.46.76.93:5000/jenkinsxio/jenkins-jenkins:${inputs.params.version}
+              - --destination=9.46.76.93:5000/jenkinsxio/jenkins-jenkins:latest
               - --context=/workspace/source
-              - --cache-repo=gcr.io/jenkinsxio/cache
+              - --cache-repo=9.46.76.93:5000/jenkinsxio/cache
               - --cache=true
               - --cache-dir=/workspace
-          - image: gcr.io/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
+          - image: 9.46.76.93:5000/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
             name: maven-image
             command: /kaniko/executor
             args:
               - --dockerfile=Dockerfile.maven
-              - --destination=gcr.io/jenkinsxio/jenkins-maven:${inputs.params.version}
-              - --destination=gcr.io/jenkinsxio/jenkins-maven:latest
+              - --destination=9.46.76.93:5000/jenkinsxio/jenkins-maven:${inputs.params.version}
+              - --destination=9.46.76.93:5000/jenkinsxio/jenkins-maven:latest
               - --context=/workspace/source
-              - --cache-repo=gcr.io/jenkinsxio/cache
+              - --cache-repo=9.46.76.93:5000/jenkinsxio/cache
               - --cache=true
               - --cache-dir=/workspace
-          - image: gcr.io/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
+          - image: 9.46.76.93:5000/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
             name: maven-java11-image
             command: /kaniko/executor
             args:
               - --dockerfile=Dockerfile.maven-java11
-              - --destination=gcr.io/jenkinsxio/jenkins-maven-java11:${inputs.params.version}
-              - --destination=gcr.io/jenkinsxio/jenkins-maven-java11:latest
+              - --destination=9.46.76.93:5000/jenkinsxio/jenkins-maven-java11:${inputs.params.version}
+              - --destination=9.46.76.93:5000/jenkinsxio/jenkins-maven-java11:latest
               - --context=/workspace/source
-              - --cache-repo=gcr.io/jenkinsxio/cache
+              - --cache-repo=9.46.76.93:5000/jenkinsxio/cache
               - --cache=true
               - --cache-dir=/workspace
-          - image: gcr.io/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
+          - image: 9.46.76.93:5000/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
             name: python-image
             command: /kaniko/executor
             args:
               - --dockerfile=Dockerfile.python
-              - --destination=gcr.io/jenkinsxio/jenkins-python:${inputs.params.version}
-              - --destination=gcr.io/jenkinsxio/jenkins-python:latest
+              - --destination=9.46.76.93:5000/jenkinsxio/jenkins-python:${inputs.params.version}
+              - --destination=9.46.76.93:5000/jenkinsxio/jenkins-python:latest
               - --context=/workspace/source
-              - --cache-repo=gcr.io/jenkinsxio/cache
+              - --cache-repo=9.46.76.93:5000/jenkinsxio/cache
               - --cache=true
               - --cache-dir=/workspace
-          - image: gcr.io/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
+          - image: 9.46.76.93:5000/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
             name: ruby-image
             command: /kaniko/executor
             args:
               - --dockerfile=Dockerfile.ruby
-              - --destination=gcr.io/jenkinsxio/jenkins-ruby:${inputs.params.version}
-              - --destination=gcr.io/jenkinsxio/jenkins-ruby:latest
+              - --destination=9.46.76.93:5000/jenkinsxio/jenkins-ruby:${inputs.params.version}
+              - --destination=9.46.76.93:5000/jenkinsxio/jenkins-ruby:latest
               - --context=/workspace/source
-              - --cache-repo=gcr.io/jenkinsxio/cache
+              - --cache-repo=9.46.76.93:5000/jenkinsxio/cache
               - --cache=true
               - --cache-dir=/workspace
-          - image: gcr.io/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
+          - image: 9.46.76.93:5000/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
             name: rust-image
             command: /kaniko/executor
             args:
               - --dockerfile=Dockerfile.rust
-              - --destination=gcr.io/jenkinsxio/jenkins-rust:${inputs.params.version}
-              - --destination=gcr.io/jenkinsxio/jenkins-rust:latest
+              - --destination=9.46.76.93:5000/jenkinsxio/jenkins-rust:${inputs.params.version}
+              - --destination=9.46.76.93:5000/jenkinsxio/jenkins-rust:latest
               - --context=/workspace/source
-              - --cache-repo=gcr.io/jenkinsxio/cache
+              - --cache-repo=9.46.76.93:5000/jenkinsxio/cache
               - --cache=true
               - --cache-dir=/workspace
-          - image: gcr.io/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
+          - image: 9.46.76.93:5000/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
             name: scala-image
             command: /kaniko/executor
             args:
               - --dockerfile=Dockerfile.scala
-              - --destination=gcr.io/jenkinsxio/jenkins-scala:${inputs.params.version}
-              - --destination=gcr.io/jenkinsxio/jenkins-scala:latest
+              - --destination=9.46.76.93:5000/jenkinsxio/jenkins-scala:${inputs.params.version}
+              - --destination=9.46.76.93:5000/jenkinsxio/jenkins-scala:latest
               - --context=/workspace/source
-              - --cache-repo=gcr.io/jenkinsxio/cache
+              - --cache-repo=9.46.76.93:5000/jenkinsxio/cache
               - --cache=true
               - --cache-dir=/workspace
           # Create the release notes
           - name: changelog
-            image: gcr.io/jenkinsxio/builder-go:0.1.700
+            image: 9.46.76.93:5000/jenkinsxio/builder-go:0.1.700
             command: ./jx/scripts/changelog.sh
           # Do updatebot after release notes so we can use the release notes in the PRs
-          - image: gcr.io/jenkinsxio/builder-go:0.1.700
+          - image: 9.46.76.93:5000/jenkinsxio/builder-go:0.1.700
             name: trigger-updatebot
             command: ./jx/scripts/updatebot.sh
 
@@ -217,7 +217,7 @@ pipelineConfig:
               requests:
                 memory: 6Gi
         agent:
-          image: gcr.io/kaniko-project
+          image: 9.46.76.93:5000/kaniko-project
         stages:
         - name: build-and-push
           environment:
@@ -240,149 +240,149 @@ pipelineConfig:
               - /builder/home/kaniko-secret.json
 
           - name: warm-cache
-            image: gcr.io/kaniko-project/warmer
+            image: 9.46.76.93:5000/kaniko-project/warmer
             args:
               - --cache-dir=/workspace
               - --image=jenkinsxio/jenkins-filerunner:0.1.18
             command: /kaniko/warmer
-          - image: gcr.io/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
+          - image: 9.46.76.93:5000/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
             name: jx-image
             command: /kaniko/executor
             args:
               - --dockerfile=Dockerfile.jx
-              - --destination=gcr.io/jenkinsxio/jenkins-jx:${inputs.params.version}
+              - --destination=9.46.76.93:5000/jenkinsxio/jenkins-jx:${inputs.params.version}
               - --context=/workspace/source
-              - --cache-repo=gcr.io/jenkinsxio/cache
+              - --cache-repo=9.46.76.93:5000/jenkinsxio/cache
               - --cache=true
               - --cache-dir=/workspace
-          - image: gcr.io/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
+          - image: 9.46.76.93:5000/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
             name: csharp-image
             command: /kaniko/executor
             args:
               - --dockerfile=Dockerfile.csharp
-              - --destination=gcr.io/jenkinsxio/jenkins-csharp:${inputs.params.version}
+              - --destination=9.46.76.93:5000/jenkinsxio/jenkins-csharp:${inputs.params.version}
               - --context=/workspace/source
-              - --cache-repo=gcr.io/jenkinsxio/cache
+              - --cache-repo=9.46.76.93:5000/jenkinsxio/cache
               - --cache=true
               - --cache-dir=/workspace
-          - image: gcr.io/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
+          - image: 9.46.76.93:5000/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
             name: cwp-image
             command: /kaniko/executor
             args:
               - --dockerfile=Dockerfile.cwp
-              - --destination=gcr.io/jenkinsxio/jenkins-cwp:${inputs.params.version}
+              - --destination=9.46.76.93:5000/jenkinsxio/jenkins-cwp:${inputs.params.version}
               - --context=/workspace/source
-              - --cache-repo=gcr.io/jenkinsxio/cache
+              - --cache-repo=9.46.76.93:5000/jenkinsxio/cache
               - --cache=true
               - --cache-dir=/workspace
-          - image: gcr.io/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
+          - image: 9.46.76.93:5000/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
             name: elixir-image
             command: /kaniko/executor
             args:
               - --dockerfile=Dockerfile.elixir
-              - --destination=gcr.io/jenkinsxio/jenkins-elixir:${inputs.params.version}
+              - --destination=9.46.76.93:5000/jenkinsxio/jenkins-elixir:${inputs.params.version}
               - --context=/workspace/source
-              - --cache-repo=gcr.io/jenkinsxio/cache
+              - --cache-repo=9.46.76.93:5000/jenkinsxio/cache
               - --cache=true
               - --cache-dir=/workspace
-          - image: gcr.io/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
+          - image: 9.46.76.93:5000/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
             name: go-image
             command: /kaniko/executor
             args:
               - --dockerfile=Dockerfile.go
-              - --destination=gcr.io/jenkinsxio/jenkins-go:${inputs.params.version}
+              - --destination=9.46.76.93:5000/jenkinsxio/jenkins-go:${inputs.params.version}
               - --context=/workspace/source
-              - --cache-repo=gcr.io/jenkinsxio/cache
+              - --cache-repo=9.46.76.93:5000/jenkinsxio/cache
               - --cache=true
               - --cache-dir=/workspace
-          - image: gcr.io/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
+          - image: 9.46.76.93:5000/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
             name: gradle-image
             command: /kaniko/executor
             args:
               - --dockerfile=Dockerfile.gradle
-              - --destination=gcr.io/jenkinsxio/jenkins-gradle:${inputs.params.version}
+              - --destination=9.46.76.93:5000/jenkinsxio/jenkins-gradle:${inputs.params.version}
               - --context=/workspace/source
-              - --cache-repo=gcr.io/jenkinsxio/cache
+              - --cache-repo=9.46.76.93:5000/jenkinsxio/cache
               - --cache=true
               - --cache-dir=/workspace
-          - image: gcr.io/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
+          - image: 9.46.76.93:5000/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
             name: javascript-image
             command: /kaniko/executor
             args:
               - --dockerfile=Dockerfile.javascript
-              - --destination=gcr.io/jenkinsxio/jenkins-javascript:${inputs.params.version}
+              - --destination=9.46.76.93:5000/jenkinsxio/jenkins-javascript:${inputs.params.version}
               - --context=/workspace/source
-              - --cache-repo=gcr.io/jenkinsxio/cache
+              - --cache-repo=9.46.76.93:5000/jenkinsxio/cache
               - --cache=true
               - --cache-dir=/workspace
-          - image: gcr.io/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
+          - image: 9.46.76.93:5000/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
             name: jenkins-image
             command: /kaniko/executor
             args:
               - --dockerfile=Dockerfile.jenkins
-              - --destination=gcr.io/jenkinsxio/jenkins-jenkins:${inputs.params.version}
+              - --destination=9.46.76.93:5000/jenkinsxio/jenkins-jenkins:${inputs.params.version}
               - --context=/workspace/source
-              - --cache-repo=gcr.io/jenkinsxio/cache
+              - --cache-repo=9.46.76.93:5000/jenkinsxio/cache
               - --cache=true
               - --cache-dir=/workspace
-          - image: gcr.io/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
+          - image: 9.46.76.93:5000/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
             name: maven-image
             command: /kaniko/executor
             args:
               - --dockerfile=Dockerfile.maven
-              - --destination=gcr.io/jenkinsxio/jenkins-maven:${inputs.params.version}
+              - --destination=9.46.76.93:5000/jenkinsxio/jenkins-maven:${inputs.params.version}
               - --context=/workspace/source
-              - --cache-repo=gcr.io/jenkinsxio/cache
+              - --cache-repo=9.46.76.93:5000/jenkinsxio/cache
               - --cache=true
               - --cache-dir=/workspace
-          - image: gcr.io/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
+          - image: 9.46.76.93:5000/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
             name: maven-java11-image
             command: /kaniko/executor
             args:
               - --dockerfile=Dockerfile.maven-java11
-              - --destination=gcr.io/jenkinsxio/jenkins-maven-java11:${inputs.params.version}
+              - --destination=9.46.76.93:5000/jenkinsxio/jenkins-maven-java11:${inputs.params.version}
               - --context=/workspace/source
-              - --cache-repo=gcr.io/jenkinsxio/cache
+              - --cache-repo=9.46.76.93:5000/jenkinsxio/cache
               - --cache=true
               - --cache-dir=/workspace
-          - image: gcr.io/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
+          - image: 9.46.76.93:5000/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
             name: python-image
             command: /kaniko/executor
             args:
               - --dockerfile=Dockerfile.python
-              - --destination=gcr.io/jenkinsxio/jenkins-python:${inputs.params.version}
+              - --destination=9.46.76.93:5000/jenkinsxio/jenkins-python:${inputs.params.version}
               - --context=/workspace/source
-              - --cache-repo=gcr.io/jenkinsxio/cache
+              - --cache-repo=9.46.76.93:5000/jenkinsxio/cache
               - --cache=true
               - --cache-dir=/workspace
-          - image: gcr.io/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
+          - image: 9.46.76.93:5000/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
             name: ruby-image
             command: /kaniko/executor
             args:
               - --dockerfile=Dockerfile.ruby
-              - --destination=gcr.io/jenkinsxio/jenkins-ruby:${inputs.params.version}
+              - --destination=9.46.76.93:5000/jenkinsxio/jenkins-ruby:${inputs.params.version}
               - --context=/workspace/source
-              - --cache-repo=gcr.io/jenkinsxio/cache
+              - --cache-repo=9.46.76.93:5000/jenkinsxio/cache
               - --cache=true
               - --cache-dir=/workspace
-          - image: gcr.io/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
+          - image: 9.46.76.93:5000/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
             name: rust-image
             command: /kaniko/executor
             args:
               - --dockerfile=Dockerfile.rust
-              - --destination=gcr.io/jenkinsxio/jenkins-rust:${inputs.params.version}
+              - --destination=9.46.76.93:5000/jenkinsxio/jenkins-rust:${inputs.params.version}
               - --context=/workspace/source
-              - --cache-repo=gcr.io/jenkinsxio/cache
+              - --cache-repo=9.46.76.93:5000/jenkinsxio/cache
               - --cache=true
               - --cache-dir=/workspace
-          - image: gcr.io/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
+          - image: 9.46.76.93:5000/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
             name: scala-image
             command: /kaniko/executor
             args:
               - --dockerfile=Dockerfile.scala
-              - --destination=gcr.io/jenkinsxio/jenkins-scala:${inputs.params.version}
+              - --destination=9.46.76.93:5000/jenkinsxio/jenkins-scala:${inputs.params.version}
               - --context=/workspace/source
-              - --cache-repo=gcr.io/jenkinsxio/cache
+              - --cache-repo=9.46.76.93:5000/jenkinsxio/cache
               - --cache=true
               - --cache-dir=/workspace
 
